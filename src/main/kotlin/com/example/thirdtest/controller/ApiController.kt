@@ -24,9 +24,8 @@ class ApiController (
 
     @GetMapping("/account/{id}")
     suspend fun getAccount(@PathVariable id:Long)
-    :ResponseEntity<Account>{
-        return accountService.findAccountById(id)
-    }
+        = accountService.findAccountById(id)
+
 
     @PostMapping("/post")
     suspend fun createPost(@RequestBody postDTO:Post)
@@ -38,9 +37,8 @@ class ApiController (
     suspend fun getUserPosts(
         @PathVariable accountId: Int,
         @RequestParam(defaultValue = "0") page: Int,
-        @RequestParam(defaultValue = "5") size: Int
-    ):ResponseEntity<Flow<Post>>{
-        return postService.findPostsByAccountId(accountId,page,size)
-    }
+        @RequestParam(defaultValue = "50") size: Int ) =
+        postService.findPostsByAccountId(accountId,page,size)
+
 
 }
