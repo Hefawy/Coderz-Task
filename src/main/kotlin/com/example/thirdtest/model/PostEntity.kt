@@ -7,7 +7,7 @@ import java.time.LocalDateTime
 @Table("post")
 data class PostEntity (
     @Id
-    val id: Long?,
+    val id: Long,
     val content: String,
     val creationDate: LocalDateTime,
     val accountId: Int

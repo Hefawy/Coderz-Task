@@ -7,7 +7,7 @@ import org.springframework.data.relational.core.mapping.Table
 data class AccountEntity (
 
     @Id
-    val id: Long?,
+    val id: Long,
     val username: String,
     val password: String,
     val name: String
