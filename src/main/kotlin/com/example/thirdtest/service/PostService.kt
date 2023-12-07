@@ -19,6 +19,10 @@ class PostService(private val postRepository: PostRepository) {
         return ResponseEntity(200,"Success",createdPostDTO)
     }
 
+
+
+
+    // TODO : Get retrieve only the result
     suspend fun findPostsByAccountId(accountId: Int, page: Int, size: Int)
     : ResponseEntity<Flow<Post>> {
         val effectivePageable = PageRequest.of(page, size)
