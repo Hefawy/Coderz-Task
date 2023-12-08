@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service
 
 @Service
 class PostService(private val postRepository: PostRepository) {
-
+    // TODO : remove unnecessary spaces
     suspend fun createPost(postDto: Post): ResponseEntity<Post> {
         val postEntity = postDto.toEntity()
         val createdPostEntity = postRepository.save(postEntity)
