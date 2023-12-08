@@ -9,17 +9,11 @@ import com.example.thirdtest.extension.toEntity
 
 @Service
 class AccountService (private val accountRepository: AccountRepository){
-
-// TODO : remove unnecessary spaces
     suspend fun createAccount(accountDTO: Account): ResponseEntity<Account> {
-
             val accountEntity = accountDTO.toEntity()
             val createdAccountEntity = accountRepository.save(accountEntity)
             val createdAccountDTO = createdAccountEntity.toDto()
-
             return ResponseEntity(200, "Success", createdAccountDTO)
     }
-
     suspend fun findAccountById(id: Long)= accountRepository.findById(id)
-
 }

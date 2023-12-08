@@ -5,9 +5,7 @@ import com.example.thirdtest.model.Account
 import com.example.thirdtest.model.Post
 import com.example.thirdtest.service.AccountService
 import com.example.thirdtest.service.PostService
-import kotlinx.coroutines.flow.Flow
 import org.springframework.web.bind.annotation.*
-import java.awt.print.Pageable
 
 @RestController
 @RequestMapping("/api")
@@ -26,7 +24,6 @@ class ApiController (
     suspend fun getAccount(@PathVariable id:Long)
         = accountService.findAccountById(id)
 
-
     @PostMapping("/post")
     suspend fun createPost(@RequestBody postDTO:Post)
     :ResponseEntity<Post>{
@@ -39,6 +36,4 @@ class ApiController (
         @RequestParam(defaultValue = "0") page: Int,
         @RequestParam(defaultValue = "50") size: Int ) =
         postService.findPostsByAccountId(accountId,page,size)
-
-
 }
